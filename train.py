@@ -153,8 +153,14 @@ class NeRFSystem(LightningModule):
 if __name__ == '__main__':
     hparams = get_opts()
     system = NeRFSystem(hparams)
-    checkpoint_callback = ModelCheckpoint(filepath=os.path.join(f'ckpts/{hparams.exp_name}',
-                                                                '{epoch:d}'),
+
+    if hparams.ckpts_path:
+    	ckpts_path = hparams.ckpts_path
+    else
+    	ckpts_path = f'ckpts/{hparams.exp_name}'
+    ckpts_path = os.path.join(ckpts_path, '{epoch:d}')
+
+    checkpoint_callback = ModelCheckpoint(filepath=ckpts_path,
                                           monitor='val/loss',
                                           mode='min',
                                           save_top_k=5,)

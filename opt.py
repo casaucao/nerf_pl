@@ -75,4 +75,6 @@ def get_opts():
     parser.add_argument('--exp_name', type=str, default='exp',
                         help='experiment name')
 
+    parser.add_argument('--ckpts_path', type=str, help='path to save the checkpoints')
+
     return parser.parse_args()
