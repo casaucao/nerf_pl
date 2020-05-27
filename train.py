@@ -156,7 +156,7 @@ if __name__ == '__main__':
 
     if hparams.ckpts_path:
     	ckpts_path = hparams.ckpts_path
-    else
+    else:
     	ckpts_path = f'ckpts/{hparams.exp_name}'
     ckpts_path = os.path.join(ckpts_path, '{epoch:d}')
 
